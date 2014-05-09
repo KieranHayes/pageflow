@@ -4,7 +4,7 @@ Pageflow.configure do |config|
   config.paperclip_attachments_version = 'v1'
   config.paperclip_filesystem_root = Rails.root.join('tmp/attachments/production/')
 
-  if Rails.env.test?
+  if Rails.env.test? || Rails.env.development?
     config.paperclip_s3_default_options = {
       :storage => :filesystem,
       :path => ':rails_root/tmp/attachments/test/s3/:class/:attachment/:id_partition/:style/:filename'
